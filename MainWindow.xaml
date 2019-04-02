@@ -20,20 +20,23 @@
                 <GridView>
                     <GridViewColumn>
                         <GridViewColumn.Header>
-                            <ItemsControl ItemsSource="{Binding [0]}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Rows="1" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border BorderBrush="Green" BorderThickness="2">
-                                            <TextBlock Text="{Binding Key}" Width="100"/>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                            <StackPanel>
+                                <TextBlock Text="{Binding [0][C1]}" />
+                                <ItemsControl ItemsSource="{Binding [0]}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Rows="1" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="Green" BorderThickness="2">
+                                                <TextBlock Text="{Binding Key}" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
                         </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
