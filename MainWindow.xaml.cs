@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,25 @@ namespace WpfApp10
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            DataContext = new MainViewModel();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var Row = int.Parse(TxRow.Text);
+            var Col = int.Parse(TxCol.Text);
+            var Items = new ObservableCollection<Dictionary<string, string>>();
+            Items.Clear();
+            for (int r = 0; r < Row; r++)
+            {
+                var dic = new Dictionary<string, string>();
+
+                for (int c = 0; c < Col; c++)
+                {
+                    dic.Add($"C{c}", $"C{c}-R{r}");
+                }
+                Items.Add(dic);
+            }
+            DataContext = Items;
         }
     }
 }

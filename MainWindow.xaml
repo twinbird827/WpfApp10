@@ -6,26 +6,21 @@
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="Gd">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <UniformGrid Grid.Row="0" Rows="1">
+    <DockPanel>
+        <UniformGrid DockPanel.Dock="Top" Rows="1">
             <TextBlock Text="Row" />
-            <TextBox Text="{Binding Row}" />
+            <TextBox x:Name="TxRow" />
             <TextBlock Text="Column" />
-            <TextBox Text="{Binding Column}" />
-            <Button Content="EXECUTE" Command="{Binding Execute}" />
+            <TextBox x:Name="TxCol" />
+            <Button Content="EXECUTE" Click="Button_Click" />
         </UniformGrid>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Items}">
+        <ListView ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn>
                         <GridViewColumn.Header>
-                            <ItemsControl ItemsSource="{Binding Items[0]}">
+                            <ItemsControl ItemsSource="{Binding [0]}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <UniformGrid Rows="1" />
@@ -62,5 +57,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-    </Grid>
+    </DockPanel>
 </Window>
